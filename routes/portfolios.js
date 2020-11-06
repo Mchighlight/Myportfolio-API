@@ -8,7 +8,8 @@ const {
   getPortfolios,
   getPortfolioById,
   createPortfolio,
-  updatePortfolio } = require('../controllers/portfolios');
+  updatePortfolio,
+  deletePortfolio } = require('../controllers/portfolios');
 
 router.get('', getPortfolios);
 router.get('/:id', getPortfolioById);
@@ -16,6 +17,7 @@ router.get('/:id', getPortfolioById);
 // TODO: create middleware to check for admin right
 router.post('', checkJwt, createPortfolio);
 
-router.patch('/:id', updatePortfolio);
+router.patch('/:id', checkJwt, updatePortfolio);
+router.delete('/:id', checkJwt, deletePortfolio);
 
 module.exports = router;
