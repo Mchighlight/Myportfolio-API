@@ -1,5 +1,6 @@
 const jwt = require('express-jwt');
 const jwksRsa = require('jwks-rsa');
+const config = require('../config/dev');
 
 // Authentication middleware
 // This middleware will check access token in authorization headers
@@ -22,7 +23,6 @@ exports.checkJwt = jwt({
 
 exports.checkRole = role => (req, res, next) => {
   const user = req.user;
-
   if (user && user[config.AUTH0_NAMESPACE + '/roles'].includes(role)) {
     next();
   } else {

@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 
 
 require('./models/portfolio');
+require('./models/blog');
 
 exports.connect = () => {
   return mongoose.connect(config.DB_URI, {
