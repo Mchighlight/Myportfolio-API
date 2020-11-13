@@ -9,9 +9,11 @@ const {
   getBlogById,
   getBlogBySlug,
   createBlog,
-  updateBlog } = require('../controllers/blogs');
+  updateBlog,
+  getBlogByUser } = require('../controllers/blogs');
 
 router.get('', getBlogs);
+router.get('/me', checkJwt, checkRole('admin'),  getBlogByUser);
 router.get('/:id', getBlogById);
 router.get('/s/:slug', getBlogBySlug);
 
