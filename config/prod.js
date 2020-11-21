@@ -7,5 +7,3 @@ module.exports = {
     AUTH0_TOKEN_URL: process.env.AUTH0_TOKEN_URL,
     AUTH0_DOMAIN:    process.env.AUTH0_DOMAIN
 }
-
-// mongodb+srv://<username>:<password>@cluster0.2m2ps.mongodb.net/<dbname>?retryWrites=true&w=majority
